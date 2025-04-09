@@ -1,0 +1,223 @@
+/* Özel Renkler */
+:root {
+    /* Nature Teması */
+    --color-nature-50: #f0f7f4;
+    --color-nature-100: #d6e9e0;
+    --color-nature-200: #b3d9c6;
+    --color-nature-300: #8ac3a8;
+    --color-nature-400: #5ea886;
+    --color-nature-500: #38a96f;
+    --color-nature-600: #2d8a5c;
+    --color-nature-700: #226743;
+    --color-nature-800: #1a4f33;
+    --color-nature-900: #153d28;
+
+    /* Light Teması */
+    --color-light-50: #fafafa;
+    --color-light-100: #f5f5f5;
+    --color-light-200: #e5e5e5;
+    --color-light-300: #d4d4d4;
+    --color-light-400: #a3a3a3;
+    --color-light-500: #737373;
+    --color-light-600: #525252;
+    --color-light-700: #404040;
+    --color-light-800: #262626;
+    --color-light-900: #171717;
+
+    /* Dark Teması - Daha karanlık */
+    --color-dark-50: #0a0a0a;
+    --color-dark-100: #121212;
+    --color-dark-200: #1a1a1a;
+    --color-dark-300: #222222;
+    --color-dark-400: #2a2a2a;
+    --color-dark-500: #333333;
+    --color-dark-600: #444444;
+    --color-dark-700: #555555;
+    --color-dark-800: #666666;
+    --color-dark-900: #fafafa;
+}
+
+/* Tailwind Renk Sınıfları */
+.bg-nature-50 { background-color: var(--color-nature-50); }
+.bg-nature-100 { background-color: var(--color-nature-100); }
+.bg-nature-200 { background-color: var(--color-nature-200); }
+.bg-nature-300 { background-color: var(--color-nature-300); }
+.bg-nature-400 { background-color: var(--color-nature-400); }
+.bg-nature-500 { background-color: var(--color-nature-500); }
+.bg-nature-600 { background-color: var(--color-nature-600); }
+.bg-nature-700 { background-color: var(--color-nature-700); }
+.bg-nature-800 { background-color: var(--color-nature-800); }
+.bg-nature-900 { background-color: var(--color-nature-900); }
+
+.bg-light-50 { background-color: var(--color-light-50); }
+.bg-light-100 { background-color: var(--color-light-100); }
+.bg-light-200 { background-color: var(--color-light-200); }
+.bg-light-300 { background-color: var(--color-light-300); }
+.bg-light-400 { background-color: var(--color-light-400); }
+.bg-light-500 { background-color: var(--color-light-500); }
+.bg-light-600 { background-color: var(--color-light-600); }
+.bg-light-700 { background-color: var(--color-light-700); }
+.bg-light-800 { background-color: var(--color-light-800); }
+.bg-light-900 { background-color: var(--color-light-900); }
+
+.bg-dark-50 { background-color: var(--color-dark-50); }
+.bg-dark-100 { background-color: var(--color-dark-100); }
+.bg-dark-200 { background-color: var(--color-dark-200); }
+.bg-dark-300 { background-color: var(--color-dark-300); }
+.bg-dark-400 { background-color: var(--color-dark-400); }
+.bg-dark-500 { background-color: var(--color-dark-500); }
+.bg-dark-600 { background-color: var(--color-dark-600); }
+.bg-dark-700 { background-color: var(--color-dark-700); }
+.bg-dark-800 { background-color: var(--color-dark-800); }
+.bg-dark-900 { background-color: var(--color-dark-900); }
+
+/* Metin Renkleri */
+.text-nature-50 { color: var(--color-nature-50); }
+.text-nature-100 { color: var(--color-nature-100); }
+.text-nature-200 { color: var(--color-nature-200); }
+.text-nature-300 { color: var(--color-nature-300); }
+.text-nature-400 { color: var(--color-nature-400); }
+.text-nature-500 { color: var(--color-nature-500); }
+.text-nature-600 { color: var(--color-nature-600); }
+.text-nature-700 { color: var(--color-nature-700); }
+.text-nature-800 { color: var(--color-nature-800); }
+.text-nature-900 { color: var(--color-nature-900); }
+
+.text-light-50 { color: var(--color-light-50); }
+.text-light-100 { color: var(--color-light-100); }
+.text-light-200 { color: var(--color-light-200); }
+.text-light-300 { color: var(--color-light-300); }
+.text-light-400 { color: var(--color-light-400); }
+.text-light-500 { color: var(--color-light-500); }
+.text-light-600 { color: var(--color-light-600); }
+.text-light-700 { color: var(--color-light-700); }
+.text-light-800 { color: var(--color-light-800); }
+.text-light-900 { color: var(--color-light-900); }
+
+.text-dark-50 { color: var(--color-dark-50); }
+.text-dark-100 { color: var(--color-dark-100); }
+.text-dark-200 { color: var(--color-dark-200); }
+.text-dark-300 { color: var(--color-dark-300); }
+.text-dark-400 { color: var(--color-dark-400); }
+.text-dark-500 { color: var(--color-dark-500); }
+.text-dark-600 { color: var(--color-dark-600); }
+.text-dark-700 { color: var(--color-dark-700); }
+.text-dark-800 { color: var(--color-dark-800); }
+.text-dark-900 { color: var(--color-dark-900); }
+
+/* Animasyonlar */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse-slow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+}
+
+/* Genel Stiller */
+body {
+    transition: background-color 0.3s, color 0.3s;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Arka Plan Görselleri */
+.bg-nature {
+    background-image: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+}
+
+.bg-light {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+}
+
+.bg-dark {
+    background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+}
+
+/* Scroll Bar Stilleri */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-nature-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-nature-400);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-nature-500);
+}
+
+/* Seçim Stilleri */
+::selection {
+    background: var(--color-nature-200);
+    color: var(--color-nature-900);
+}
+
+/* Modern Kart Stilleri */
+.card {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mod Kart Stilleri */
+.dark .card {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Buton Stilleri */
+.btn {
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Glassmorphism Efektleri */
+.glass {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+} 

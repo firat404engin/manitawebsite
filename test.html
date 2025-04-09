@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tasarım Testi</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .device {
+            border: 2px solid #38a96f;
+            border-radius: 10px;
+            margin: 20px auto;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .device-header {
+            background-color: #38a96f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .device-content {
+            padding: 20px;
+        }
+        .device-content iframe {
+            width: 100%;
+            border: none;
+        }
+        h1 {
+            text-align: center;
+            color: #226743;
+            margin-bottom: 30px;
+        }
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Responsive Tasarım Testi</h1>
+        
+        <div class="responsive-grid">
+            <!-- Mobil Görünüm -->
+            <div class="device" style="max-width: 375px;">
+                <div class="device-header">Mobil (375px)</div>
+                <div class="device-content">
+                    <iframe src="index.html" height="667" title="Mobil Görünüm"></iframe>
+                </div>
+            </div>
+            
+            <!-- Tablet Görünüm -->
+            <div class="device" style="max-width: 768px;">
+                <div class="device-header">Tablet (768px)</div>
+                <div class="device-content">
+                    <iframe src="index.html" height="1024" title="Tablet Görünüm"></iframe>
+                </div>
+            </div>
+            
+            <!-- Masaüstü Görünüm -->
+            <div class="device" style="max-width: 1024px;">
+                <div class="device-header">Masaüstü (1024px)</div>
+                <div class="device-content">
+                    <iframe src="index.html" height="768" title="Masaüstü Görünüm"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

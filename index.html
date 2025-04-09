@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="tr" x-data="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zihinsel Dinginlik | Huzur ve Sakinlik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-nature {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .bg-light {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .bg-dark {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .loading-screen {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+            backdrop-filter: blur(10px);
+        }
+        .loading-image {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .loading-text {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6; }
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="transition-colors duration-300 min-h-screen" :class="{
+    'bg-nature text-white': theme === 'nature',
+    'bg-light text-gray-800': theme === 'light',
+    'bg-dark text-white': theme === 'dark'
+}" :style="theme === 'nature' ? `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${currentBackground}')` : 
+           theme === 'light' ? `background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('${currentLightBackground}')` :
+           `background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${currentDarkBackground}')`">
+    
+    <!-- Arka Plan Müziği -->
+    <iframe id="bgMusic" width="0" height="0" src="https://www.youtube.com/embed/wiYGW037tGM?autoplay=0&controls=0&loop=1&playlist=wiYGW037tGM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <button @click="toggleMusic" class="fixed bottom-4 left-4 z-10 p-3 rounded-full glass hover:bg-opacity-30 transition-colors">
+        <span x-text="isMusicPlaying ? '🔊' : '🔈'" class="text-xl"></span>
+    </button>
+
+    <!-- Yükleme Ekranı -->
+    <div x-show="!isLoaded" 
+         x-transition:enter="transition ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 loading-screen flex items-center justify-center">
+        <div class="text-center">
+            <img src="images/loanding.png" alt="Yükleniyor" class="w-64 h-64 mx-auto mb-8 loading-image">
+            <p class="text-2xl text-white loading-text">✨ Zihinsel dinginlik hazırlanıyor...</p>
+            <div class="mt-8 flex justify-center space-x-2">
+                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0s;"></div>
+                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tema Seçimi -->
+    <div class="fixed top-4 right-4 z-10">
+        <button @click="theme = theme === 'nature' ? 'light' : theme === 'light' ? 'dark' : 'nature'" 
+                class="p-3 rounded-full glass hover:bg-opacity-30 transition-colors">
+            <span x-text="theme === 'nature' ? '🌿' : theme === 'light' ? '☀️' : '🌙'" class="text-xl"></span>
+        </button>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main class="container mx-auto px-4 py-8 min-h-screen flex flex-col items-center justify-center">
+        <!-- Karşılama Metni -->
+        <div class="text-center mb-12 animate-fade-in">
+            <h1 class="text-5xl font-medium mb-4">✨ Zihinsel Dinginlik</h1>
+            <p class="text-xl opacity-90">Huzur ve sakinliğin kapılarını aralayın</p>
+        </div>
+
+        <!-- İlham Al Butonu -->
+        <button @click="showRandomMotivation" 
+                class="glass px-12 py-6 rounded-full text-2xl font-medium transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 flex items-center space-x-4 group">
+            <svg class="w-8 h-8 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+            <span>İlham Al</span>
+        </button>
+
+        <!-- Alt Metin -->
+        <p class="mt-8 text-lg opacity-80">Her tıklamada yeni bir ilham keşfedin</p>
+    </main>
+
+    <!-- Motivasyon Modal -->
+    <div x-show="showModal" 
+         x-transition:enter="transition ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50"
+         style="display: none;">
+        <div class="absolute inset-0">
+            <img :src="currentImage" 
+                 class="w-full h-full object-cover"
+                 alt="Motivasyon Görseli">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+        <div class="relative h-full flex items-center justify-center p-4">
+            <div class="text-center max-w-2xl">
+                <h3 class="text-4xl font-medium mb-8 text-white" x-text="currentMessage"></h3>
+                <button @click="showModal = false" 
+                        class="glass px-8 py-3 rounded-full text-lg hover:bg-opacity-30 transition-colors">
+                    Kapat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('app', () => ({
+                theme: 'nature',
+                showModal: false,
+                currentMessage: '',
+                currentImage: '',
+                currentBackground: '',
+                currentLightBackground: '',
+                currentDarkBackground: '',
+                isLoaded: false,
+                isMusicPlaying: false,
+                natureBackgrounds: [
+                    'images/wallpaperflare.com_wallpaper.jpg',
+                    'images/wallpaperflare.com_wallpaper (1).jpg',
+                    'images/wallpaperflare.com_wallpaper (2).jpg',
+                    'images/wallpaperflare.com_wallpaper (3).jpg'
+                ],
+                lightBackgrounds: [
+                    'images/wallpaperflare.com_wallpaper (4).jpg',
+                    'images/wallpaperflare.com_wallpaper (5).jpg',
+                    'images/wallpaperflare.com_wallpaper (6).jpg'
+                ],
+                darkBackgrounds: [
+                    'images/wallpaperflare.com_wallpaper (7).jpg',
+                    'images/wallpaperflare.com_wallpaper (8).jpg',
+                    'images/wallpaperflare.com_wallpaper.jpg'
+                ],
+                motivations: [
+                    {
+                        message: 'Her yeni gün, yeni bir başlangıç için bir fırsattır.',
+                        image: 'images/wallpaperflare.com_wallpaper.jpg'
+                    },
+                    {
+                        message: 'Küçük adımlar at, büyük hayaller kur.',
+                        image: 'images/wallpaperflare.com_wallpaper (1).jpg'
+                    },
+                    {
+                        message: 'Kendine inan, yolun başındasın.',
+                        image: 'images/wallpaperflare.com_wallpaper (2).jpg'
+                    },
+                    {
+                        message: 'Bugün dünden daha güçlüsün.',
+                        image: 'images/wallpaperflare.com_wallpaper (3).jpg'
+                    },
+                    {
+                        message: 'Her şey mümkün, sadece inanman yeterli.',
+                        image: 'images/wallpaperflare.com_wallpaper (4).jpg'
+                    },
+                    {
+                        message: 'Huzur, içinde saklı bir hazinedir.',
+                        image: 'images/wallpaperflare.com_wallpaper (5).jpg'
+                    },
+                    {
+                        message: 'Değişim kaçınılmazdır, büyüme bir seçimdir.',
+                        image: 'images/wallpaperflare.com_wallpaper (6).jpg'
+                    },
+                    {
+                        message: 'Her nefes, yeni bir fırsattır.',
+                        image: 'images/wallpaperflare.com_wallpaper (7).jpg'
+                    },
+                    {
+                        message: 'Kendini sev, çünkü sen özelsin.',
+                        image: 'images/wallpaperflare.com_wallpaper (8).jpg'
+                    }
+                ],
+                showRandomMotivation() {
+                    const motivation = this.motivations[Math.floor(Math.random() * this.motivations.length)];
+                    this.currentMessage = motivation.message;
+                    this.currentImage = motivation.image;
+                    this.showModal = true;
+                },
+                toggleMusic() {
+                    const iframe = document.getElementById('bgMusic');
+                    if (this.isMusicPlaying) {
+                        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+                    } else {
+                        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+                    }
+                    this.isMusicPlaying = !this.isMusicPlaying;
+                },
+                createParticles() {
+                    const container = document.querySelector('.loading-screen');
+                    if (!container) return;
+                    
+                    for (let i = 0; i < 50; i++) {
+                        const particle = document.createElement('div');
+                        particle.classList.add('particle');
+                        
+                        const size = Math.random() * 5 + 1;
+                        particle.style.width = `${size}px`;
+                        particle.style.height = `${size}px`;
+                        
+                        particle.style.left = `${Math.random() * 100}%`;
+                        particle.style.top = `${Math.random() * 100}%`;
+                        
+                        particle.style.animation = `float ${Math.random() * 10 + 5}s linear infinite`;
+                        
+                        container.appendChild(particle);
+                    }
+                },
+                init() {
+                    // Rastgele arka planlar seç
+                    this.currentBackground = this.natureBackgrounds[Math.floor(Math.random() * this.natureBackgrounds.length)];
+                    this.currentLightBackground = this.lightBackgrounds[Math.floor(Math.random() * this.lightBackgrounds.length)];
+                    this.currentDarkBackground = this.darkBackgrounds[Math.floor(Math.random() * this.darkBackgrounds.length)];
+                    
+                    // Parçacıkları oluştur
+                    this.createParticles();
+                    
+                    // Sayfa yüklendikten sonra
+                    setTimeout(() => {
+                        this.isLoaded = true;
+                    }, 3000);
+                }
+            }));
+        });
+    </script>
+</body>
+</html> 

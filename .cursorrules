@@ -1,0 +1,19 @@
+🌿 Sakin, Huzurlu ve Modern Danışmanlık Web Sitesi
+(HTML + Tailwind CSS + Alpine.js ile tek sayfa yapısında)
+Türkçe yanıtlar ver 
+🔹 Tema: Soft pastel renkler, doğadan ilham alan görseller ve sade bir tipografi ile kullanıcıya huzur veren bir atmosfer.
+🔹 Yapı: Tek sayfa yapıda ve aşağı kaydırmalı (scroll) içerik akışı.
+🔹 Yüklenme Ekranı: Sayfa yüklenirken “✨ Zihinsel dinginlik hazırlanıyor...
+ yazısı ve soft animasyonlarla karşılanırsınız.
+🔹 Motivasyon Butonu: Sayfa üzerinde bir butona tıklanıldığında rastgele bir motivasyon mesajı ekranda belirir (Alpine.js ile).
+🔹 Çok Dilli Destek: Türkçe 🇹🇷 ve İngilizce 🇬🇧 arasında geçiş yapılabilir.
+🔹 Doğal Arka Plan Sesleri: İsteğe bağlı açılıp kapatılabilen kuş sesleri, su sesi gibi doğa ambiyansları kullanıcıya sakin bir ortam sunar.
+🔹 Animasyonlu Motivasyon Mesajları: Her mesaj ekrana yumuşak bir geçiş (fade/slide) ve pastel illüstrasyonlar eşliğinde gelir.
+🔹 Tema Modları: Kullanıcılar “Nature | Light | Dark” temaları arasında geçiş yapabilir, farklı ruh halleri için farklı deneyimler sunulur.
+🔹 Mini İlham Kartları: Scroll ettikçe karşılaşılan kartlar, günlük ilhamlar ve kısa öneriler içerir.
+🔹 Etkinlik Takvimi: Danışmanlık veya eğitim içerikleri takvim yapısı içinde sade biçimde sunulur.
+🔹 "Bir Nefes Al" Butonu: 30 saniyelik odaklanma veya nefes egzersizi sunan mini bir popup kullanıcıyı rahatlatır.
+🔹 Ziyaretçi Hikayeleri: Kullanıcılar kendi anonim dönüşüm hikayelerini bırakabilir (veriler localStorage’ta tutulur).
+🔹 Kültürel Motif Değişimi: Dil değiştirildiğinde sadece metin değil, görseller ve motifler de kültüre uygun şekilde değişir.
+🔹 Scroll İlerleme Göstergesi: Sayfa aşağı indikçe ekranın üst kısmında pastel tonlu bir ilerleme çubuğu belirir.
+🔹 Günlük Alıntı Widget’ı: Her gün farklı bir anlamlı söz veya alıntı gösterilerek kullanıcıya pozitif enerji verilir.
