@@ -2,7 +2,7 @@
 <html lang="tr" x-data="app">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zihinsel Dinginlik | Huzur ve Sakinlik</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js"></script>
@@ -74,9 +74,7 @@
     
     <!-- Arka Plan Müziği -->
     <iframe id="bgMusic" width="0" height="0" src="https://www.youtube.com/embed/wiYGW037tGM?autoplay=0&controls=0&loop=1&playlist=wiYGW037tGM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <button @click="toggleMusic" class="fixed bottom-4 left-4 z-10 p-3 rounded-full glass hover:bg-opacity-30 transition-colors">
-        <span x-text="isMusicPlaying ? '🔊' : '🔈'" class="text-xl"></span>
-    </button>
+   
 
     <!-- Yükleme Ekranı -->
     <div x-show="!isLoaded" 
@@ -110,21 +108,27 @@
     <main class="container mx-auto px-4 py-8 min-h-screen flex flex-col items-center justify-center">
         <!-- Karşılama Metni -->
         <div class="text-center mb-12 animate-fade-in">
-            <h1 class="text-5xl font-medium mb-4">✨ Zihinsel Dinginlik</h1>
-            <p class="text-xl opacity-90">Huzur ve sakinliğin kapılarını aralayın</p>
+            <h1 class="text-4xl md:text-5xl font-medium mb-4">✨ Zihinsel Dinginlik</h1>
+            <p class="text-lg md:text-xl opacity-90">Huzur ve sakinliğin kapılarını aralayın</p>
         </div>
 
         <!-- İlham Al Butonu -->
         <button @click="showRandomMotivation" 
-                class="glass px-12 py-6 rounded-full text-2xl font-medium transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 flex items-center space-x-4 group">
-            <svg class="w-8 h-8 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                class="glass px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-medium transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 flex items-center space-x-4 group">
+            <svg class="w-6 h-6 md:w-8 md:h-8 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
             <span>İlham Al</span>
         </button>
 
+        <!-- Huzurla Oku Butonu -->
+        <button @click="toggleMusic" 
+                class="mt-6 glass px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-medium transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 flex items-center space-x-4 group">
+            <span x-text="isMusicPlaying ? '🔊 Huzurla Dinle' : '🔈 Huzurla Oku'" class="text-xl"></span>
+        </button>
+
         <!-- Alt Metin -->
-        <p class="mt-8 text-lg opacity-80">Her tıklamada yeni bir ilham keşfedin</p>
+        <p class="mt-8 text-base md:text-lg opacity-80">Her tıklamada yeni bir ilham keşfedin</p>
     </main>
 
     <!-- Motivasyon Modal -->
@@ -154,6 +158,15 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="fixed bottom-0 w-full py-4 text-center glass">
+        <p class="text-sm md:text-base">
+            <a href="https://firatengin-henna.vercel.app/" target="_blank" class="hover:opacity-80 transition-opacity">
+                🌿 Fırat Engin | Kişisel Web Sitesi
+            </a>
+        </p>
+    </footer>
+
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('app', () => ({
@@ -170,17 +183,66 @@
                     'images/wallpaperflare.com_wallpaper.jpg',
                     'images/wallpaperflare.com_wallpaper (1).jpg',
                     'images/wallpaperflare.com_wallpaper (2).jpg',
-                    'images/wallpaperflare.com_wallpaper (3).jpg'
-                ],
-                lightBackgrounds: [
+                    'images/wallpaperflare.com_wallpaper (3).jpg',
                     'images/wallpaperflare.com_wallpaper (4).jpg',
                     'images/wallpaperflare.com_wallpaper (5).jpg',
-                    'images/wallpaperflare.com_wallpaper (6).jpg'
-                ],
-                darkBackgrounds: [
+                    'images/wallpaperflare.com_wallpaper (6).jpg',
                     'images/wallpaperflare.com_wallpaper (7).jpg',
                     'images/wallpaperflare.com_wallpaper (8).jpg',
-                    'images/wallpaperflare.com_wallpaper.jpg'
+                    'images/wallpaperflare.com_wallpaper (9).jpg',
+                    'images/wallpaperflare.com_wallpaper (10).jpg',
+                    'images/wallpaperflare.com_wallpaper (11).jpg',
+                    'images/wallpaperflare.com_wallpaper (12).jpg',
+                    'images/wallpaperflare.com_wallpaper (13).jpg',
+                    'images/wallpaperflare.com_wallpaper (14).jpg',
+                    'images/wallpaperflare.com_wallpaper (15).jpg',
+                    'images/wallpaperflare.com_wallpaper (16).jpg',
+                    'images/wallpaperflare.com_wallpaper (17).jpg',
+                    'images/wallpaperflare.com_wallpaper (18).jpg',
+                    'images/wallpaperflare.com_wallpaper (19).jpg',
+                ],
+                lightBackgrounds: ['images/wallpaperflare.com_wallpaper.jpg',
+                    'images/wallpaperflare.com_wallpaper (1).jpg',
+                    'images/wallpaperflare.com_wallpaper (2).jpg',
+                    'images/wallpaperflare.com_wallpaper (3).jpg',
+                    'images/wallpaperflare.com_wallpaper (4).jpg',
+                    'images/wallpaperflare.com_wallpaper (5).jpg',
+                    'images/wallpaperflare.com_wallpaper (6).jpg',
+                    'images/wallpaperflare.com_wallpaper (7).jpg',
+                    'images/wallpaperflare.com_wallpaper (8).jpg',
+                    'images/wallpaperflare.com_wallpaper (9).jpg',
+                    'images/wallpaperflare.com_wallpaper (10).jpg',
+                    'images/wallpaperflare.com_wallpaper (11).jpg',
+                    'images/wallpaperflare.com_wallpaper (12).jpg',
+                    'images/wallpaperflare.com_wallpaper (13).jpg',
+                    'images/wallpaperflare.com_wallpaper (14).jpg',
+                    'images/wallpaperflare.com_wallpaper (15).jpg',
+                    'images/wallpaperflare.com_wallpaper (16).jpg',
+                    'images/wallpaperflare.com_wallpaper (17).jpg',
+                    'images/wallpaperflare.com_wallpaper (18).jpg',
+                    'images/wallpaperflare.com_wallpaper (19).jpg',
+                ],
+                darkBackgrounds: [
+                    'images/wallpaperflare.com_wallpaper.jpg',
+                    'images/wallpaperflare.com_wallpaper (1).jpg',
+                    'images/wallpaperflare.com_wallpaper (2).jpg',
+                    'images/wallpaperflare.com_wallpaper (3).jpg',
+                    'images/wallpaperflare.com_wallpaper (4).jpg',
+                    'images/wallpaperflare.com_wallpaper (5).jpg',
+                    'images/wallpaperflare.com_wallpaper (6).jpg',
+                    'images/wallpaperflare.com_wallpaper (7).jpg',
+                    'images/wallpaperflare.com_wallpaper (8).jpg',
+                    'images/wallpaperflare.com_wallpaper (9).jpg',
+                    'images/wallpaperflare.com_wallpaper (10).jpg',
+                    'images/wallpaperflare.com_wallpaper (11).jpg',
+                    'images/wallpaperflare.com_wallpaper (12).jpg',
+                    'images/wallpaperflare.com_wallpaper (13).jpg',
+                    'images/wallpaperflare.com_wallpaper (14).jpg',
+                    'images/wallpaperflare.com_wallpaper (15).jpg',
+                    'images/wallpaperflare.com_wallpaper (16).jpg',
+                    'images/wallpaperflare.com_wallpaper (17).jpg',
+                    'images/wallpaperflare.com_wallpaper (18).jpg',
+                    'images/wallpaperflare.com_wallpaper (19).jpg',
                 ],
                 motivations: [
                     {
@@ -218,7 +280,212 @@
                     {
                         message: 'Kendini sev, çünkü sen özelsin.',
                         image: 'images/wallpaperflare.com_wallpaper (8).jpg'
-                    }
+                    },
+                    {
+                        message: 'Düşüncelerini değiştir, hayatın değişsin.',
+                        image: 'images/wallpaperflare.com_wallpaper (9).jpg'
+                    },
+                    {
+                        message: 'Bugün yapabileceğini yarına bırakma.',
+                        image: 'images/wallpaperflare.com_wallpaper (10).jpg'
+                    },
+                    {
+                        message: 'Her başarı, küçük başlangıçlarla gelir.',
+                        image: 'images/wallpaperflare.com_wallpaper (11).jpg'
+                    },
+                    {
+                        message: 'Kendine güven, yolun yarısındasın.',
+                        image: 'images/wallpaperflare.com_wallpaper (12).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için çalış, gerçekleşecekler.',
+                        image: 'images/wallpaperflare.com_wallpaper (13).jpg'
+                    },
+                    {
+                        message: 'Her gün bir öncekinden daha iyi ol.',
+                        image: 'images/wallpaperflare.com_wallpaper (14).jpg'
+                    },
+                    {
+                        message: 'Sınırlarını zorla, sınırların genişlesin.',
+                        image: 'images/wallpaperflare.com_wallpaper (15).jpg'
+                    },
+                    {
+                        message: 'Olumlu düşün, olumlu sonuçlar al.',
+                        image: 'images/wallpaperflare.com_wallpaper (16).jpg'
+                    },
+                    {
+                        message: 'Kendine inan, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (17).jpg'
+                    },
+                    {
+                        message: 'Her zorluk, yeni bir fırsattır.',
+                        image: 'images/wallpaperflare.com_wallpaper (18).jpg'
+                    },
+                    {
+                        message: 'Hayallerinin peşinden koş, yakalayacaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (19).jpg'
+                    },
+                    {
+                        message: 'Bugün yeni bir başlangıç yap.',
+                        image: 'images/wallpaperflare.com_wallpaper (20).jpg'
+                    },
+                    {
+                        message: 'Kendini geliştir, sınırlarını aş.',
+                        image: 'images/wallpaperflare.com_wallpaper (21).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir şey öğren.',
+                        image: 'images/wallpaperflare.com_wallpaper (22).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa, pişman olma.',
+                        image: 'images/wallpaperflare.com_wallpaper (23).jpg'
+                    },
+                    {
+                        message: 'Kendine güven, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (24).jpg'
+                    },
+                    {
+                        message: 'Her gün bir adım daha ileri git.',
+                        image: 'images/wallpaperflare.com_wallpaper (25).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için mücadele et.',
+                        image: 'images/wallpaperflare.com_wallpaper (26).jpg'
+                    },
+                    {
+                        message: 'Kendini sev, özelsin.',
+                        image: 'images/wallpaperflare.com_wallpaper (27).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir fırsat.',
+                        image: 'images/wallpaperflare.com_wallpaper (28).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa.',
+                        image: 'images/wallpaperflare.com_wallpaper (29).jpg'
+                    },
+                    {
+                        message: 'Kendine inan, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (30).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir başlangıç.',
+                        image: 'images/wallpaperflare.com_wallpaper (31).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için çalış.',
+                        image: 'images/wallpaperflare.com_wallpaper (32).jpg'
+                    },
+                    {
+                        message: 'Kendini geliştir, sınırlarını aş.',
+                        image: 'images/wallpaperflare.com_wallpaper (33).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir şey öğren.',
+                        image: 'images/wallpaperflare.com_wallpaper (34).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa.',
+                        image: 'images/wallpaperflare.com_wallpaper (35).jpg'
+                    },
+                    {
+                        message: 'Kendine güven, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (3).jpg'
+                    },
+                    {
+                        message: 'Her gün bir adım daha ileri.',
+                        image: 'images/wallpaperflare.com_wallpaper (7).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için mücadele et.',
+                        image: 'images/wallpaperflare.com_wallpaper (8).jpg'
+                    },
+                    {
+                        message: 'Kendini sev, özelsin.',
+                        image: 'images/wallpaperflare.com_wallpaper (9).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir fırsat.',
+                        image: 'images/wallpaperflare.com_wallpaper (4).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa.',
+                        image: 'images/wallpaperflare.com_wallpaper (1).jpg'
+                    },
+                    {
+                        message: 'Kendine inan, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (2).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir başlangıç.',
+                        image: 'images/wallpaperflare.com_wallpaper (3).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için çalış.',
+                        image: 'images/wallpaperflare.com_wallpaper (4).jpg'
+                    },
+                    {
+                        message: 'Kendini geliştir, sınırlarını aş.',
+                        image: 'images/wallpaperflare.com_wallpaper (5).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir şey öğren.',
+                        image: 'images/wallpaperflare.com_wallpaper (6).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa.',
+                        image: 'images/wallpaperflare.com_wallpaper (7).jpg'
+                    },
+                    {
+                        message: 'Kendine güven, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (8).jpg'
+                    },
+                    {
+                        message: 'Her gün bir adım daha ileri.',
+                        image: 'images/wallpaperflare.com_wallpaper (9).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için mücadele et.',
+                        image: 'images/wallpaperflare.com_wallpaper (5).jpg'
+                    },
+                    {
+                        message: 'Kendini sev, özelsin.',
+                        image: 'images/wallpaperflare.com_wallpaper (1).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir fırsat.',
+                        image: 'images/wallpaperflare.com_wallpaper (2).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa.',
+                        image: 'images/wallpaperflare.com_wallpaper (5).jpg'
+                    },
+                    {
+                        message: 'Kendine inan, başaracaksın.',
+                        image: 'images/wallpaperflare.com_wallpaper (5).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir başlangıç.',
+                        image: 'images/wallpaperflare.com_wallpaper (5).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için çalış.',
+                        image: 'images/wallpaperflare.com_wallpaper (6).jpg'
+                    },
+                    {
+                        message: 'Kendini geliştir, sınırlarını aş.',
+                        image: 'images/wallpaperflare.com_wallpaper (7).jpg'
+                    },
+                    {
+                        message: 'Her gün yeni bir şey öğren.',
+                        image: 'images/wallpaperflare.com_wallpaper (8).jpg'
+                    },
+                    {
+                        message: 'Hayallerin için yaşa.',
+                        image: 'images/wallpaperflare.com_wallpaper (9).jpg'
+                    },
+                   
                 ],
                 showRandomMotivation() {
                     const motivation = this.motivations[Math.floor(Math.random() * this.motivations.length)];
